@@ -6,18 +6,18 @@ services:
   pymongo_api:
     container_name: pymongo_api
     build:
-      context: api_app
-      dockerfile: api_app/Dockerfile
-    image: kazhem/pymongo_api:1.0.0
+      context: ./api_app
     depends_on:
       - mongos_router
     ports:
       - "8080:8080"
     networks:
       app-network:
-        ipv4_address: 173.17.0.5
+        ipv4_address: 173.17.1.1
+    volumes:
+      - ./api_app:/app
     environment:
-      MONGODB_URL: "mongodb://173.17.0.7:27020"
+      MONGODB_URL: "mongodb://173.17.0.6:27021,173.17.0.7:27020"
       MONGODB_DATABASE_NAME: "somedb"
 
   configSrv:
@@ -99,6 +99,22 @@ services:
         ipv4_address: 173.17.0.7
     command: >
       mongos --configdb config_server/configSrv:27017 --bind_ip_all --port 27020
+    healthcheck:
+      test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
+      interval: 5s
+      start_period: 10s
+
+  mongos_router_2:
+    image: mongo:latest
+    container_name: mongos_router_2
+    restart: always
+    ports:
+      - "27021:27021"
+    networks:
+      app-network:
+        ipv4_address: 173.17.0.6
+    command: >
+      mongos --configdb config_server/configSrv:27017 --bind_ip_all --port 27021
     healthcheck:
       test: [ "CMD", "mongo", "--eval", "db.adminCommand('ping')" ]
       interval: 5s
