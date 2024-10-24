@@ -2,10 +2,10 @@
 
 ## Задание 1
 
-Публичная ссылка на схему. 6 странц с описанием:
+Публичная ссылка на схему (6 страниц):  
 https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Yandex-Practicum-Sprint-2.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1bWkaDLWQyeUEV5zZl7ktwLXCRpYYT9bT%26export%3Ddownload
 
-Ссылка на файл в Drive:
+Ссылка на файл в Drive:  
 https://drive.google.com/file/d/1bWkaDLWQyeUEV5zZl7ktwLXCRpYYT9bT/view?usp=drive_link
 
 
