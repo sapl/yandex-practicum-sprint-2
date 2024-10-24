@@ -24,12 +24,6 @@ docker compose up -d
 ./scripts/mongo-init-data.sh
 ```
 
-Инициализация реплики:
-
-```shell
-./scripts/mongo-init-replicaset.sh
-```
-
 
 ## Как проверить
 

@@ -4,8 +4,8 @@ services:
 
   pymongo_api:
     container_name: pymongo_api
-    build:
-      context: ./api_app
+
+    image: kazhem/pymongo_api:1.0.0
     depends_on:
       - mongos_router
     ports:
@@ -13,10 +13,8 @@ services:
     networks:
       app-network:
         ipv4_address: 173.17.1.1
-    volumes:
-      - ./api_app:/app
     environment:
-      MONGODB_URL: "mongodb://173.17.0.7:27020,173.17.0.6:27021"
+      MONGODB_URL: "mongodb://173.17.0.7:27020"
       MONGODB_DATABASE_NAME: "somedb"
       REDIS_URL: "redis://173.17.2.1:6379"
 
